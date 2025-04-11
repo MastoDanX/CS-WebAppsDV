@@ -1,0 +1,20 @@
+#myFacts{
+    font-size: 2em;
+    color:#005530
+}
+#myFavSites{
+    font-size: 2em;
+    color:#E6003A
+}
+#myGames{
+    font-size: 2em;
+    color: #000
+}
+a{
+    text-decoration: none;
+    font-size: 1.5em;
+    color:#E6003A
+}
+a:hover{
+    color:#005530
+}

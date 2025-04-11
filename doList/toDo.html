@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Create a page that manages a to-do list
+1. Checking the box crosses out the item
+2. Unchecking the box uncrosses the item
+3. Clicking the X removes the item from the list
+4. Add a new item by typing in the box and clicking the “Add to-do” button
+Note: You don't need to save the items in a database (there will be an exercise
+later in the term to do that in a server-side database). So, refreshing the
+page will clear the list.
+Hint: You don't actually have to keep a list in memory. Use the DOM as your 
+list and just manipulate the DOM elements to add, crossout, or remove an item 
+from the list.-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="toDo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>To Do List</h1>
+    <p>Use this site to remind yourself of tasks you need to do.</p>
+    <div id="doForm">
+        <label for="doTask">Enter a task:</label>
+        <input type="text" id="doTask"  autofocus>
+        <button id="addBtn" onclick="addToDo()">Add</button>
+    </div>    
+    <h2>Tasks</h2>
+    <list id="doList"></list>
+    
+    <script>
+        function addToDo() {
+            const task = document.querySelector("#doTask").value;
+            // Checks if input was left blank
+            if (task == "") {
+                alert("Please enter a task.");
+            } else {
+                // Integrate the task list
+                const list = document.querySelector("#doList");
+
+                // Creates a new list item
+                const li = document.createElement("li");
+
+                // sets a checkbox item to the list as the task entered and adds functional buttons
+                li.innerHTML = `<input type="checkbox" onclick="crsOut(this)">${task}
+                                <button onclick="rmvTask(this)">X</button>`;
+                li.style.textDecoration = "none";
+                list.appendChild(li); // Adds task to the list
+
+                // Clears the input field after adding a task
+                document.querySelector("#doTask").value = "";
+            }
+        }
+
+        function crsOut(checkbox) {
+            console.log("crsOut");
+            const li = checkbox.parentNode; // Get the parent list item
+            if (checkbox.checked) {
+                // Crosses out the task
+                li.style.textDecoration = "line-through";
+            } else {
+                 // Uncrosses the task
+                li.style.textDecoration = "none";
+            }
+        }
+
+        function rmvTask(button) {
+            console.log("rmvTask");
+            const li = button.parentNode;
+            // Remove the list item from the list
+            li.parentNode.removeChild(li); 
+        }
+    </script>
+</body>
+</html>

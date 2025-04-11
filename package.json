@@ -1,0 +1,14 @@
+{
+  "name": "imggenner",
+  "version": "1.0.0",
+  "description": "This App generates a new image every time the button is clicked.",
+  "main": "ImgApp.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Danny Vanegas",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

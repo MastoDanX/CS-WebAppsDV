@@ -1,0 +1,31 @@
+a{
+    color: #E6003A;
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 100px auto 50px;
+    grid-template-areas: 
+        "header header"
+        "sider content"
+        "footer footer";
+}
+#item1{
+    grid-area: header;
+    background-color:  	#005530;
+    padding: 20px;
+    text-align: center;
+}
+#item2{
+    grid-area:sider;
+}
+#item3{
+    grid-area:content;
+}
+#item4{
+    grid-area:footer;
+    justify-content: space-around;
+    background-color:  	#005530;
+    padding: 20px;
+    text-align: center;
+}

@@ -1,0 +1,50 @@
+To make your server more secure you can make your server run on HTTPS
+
+Step 1
+    Import https from "https";
+    import 
+
+Step 2
+    Need to read in 2 specific files (SSL Certificate and Key Files)
+
+        const certs = {
+            key: fs.readFileSync(path.join(process.cwd(), "mycert.key")),
+            cert: fs.readFileSync(path.join(process.cwd(), "mycert.cert"))
+        };
+
+Step 3
+    Start listening for https requests on designated port
+
+        https.createServer(certs, app).listen(portHTTPS, () => {
+            console.log('HTTPS server is running at port ', portHTTPS);
+            console.log('to end press Ctrl + C');
+        });
+
+Step 4
+    Redirecting to secure link
+
+        app.use(function (req, res, next) {
+            if (!req.secure) {  // req.secure is true if the request was made using HTTPS
+            // We aren't using HTTPS. so redirect to HTTPS
+            const domain = req.hostname.split(":")[0];
+            return res.redirect("https://" + domain + ":" + portHTTPS + req.url);
+            }
+            next();
+        });
+
+    !req.secure // All requirements have a boolean property of security, this line checks to see if the security property is false
+
+    req.hostname.split(":")[0] // Parses the domain name from the request
+    
+    return res.redirect("https://"  + domain + ":" + portHTTPS + req.url); // Rebuilds a domain name with designated port and HTTPS security
+
+============================================================================================================================================|
+Side Notes
+
+How to generate your own certs & keys
+
+/!\ Using your own certs & keys will cause issues on the browsers as they don't inherentily trust user own certs, keys
+/!\ Useful for testing if your site is https secure by flagging the unsecure website message
+
+Step 1
+    onelogin

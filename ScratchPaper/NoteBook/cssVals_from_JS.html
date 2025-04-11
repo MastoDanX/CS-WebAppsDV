@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computed Styles</title>
+    <style>
+        :root {
+            --mysize: 1.5em;
+        }
+
+        body {
+            font-size: var(--mysize);
+        }
+    </style>
+</head>
+
+<body>
+    <p id="hdrTxt">Text Example</p>
+    <p id="cssRes" style="font-size: 20px;"></p>
+
+    <script>
+        let hdrTxt = document.querySelector("#hdrTxt");
+        let cssRes = document.querySelector("#cssRes");
+
+        let s = "<br>";
+
+        /* Only works for inline CSS values/values set directly on the element using js
+        The code below will not work */
+        s += "hdrTxt.style.fontSize = " + hdrTxt.style.fontSize + " <br>";
+        console.log(s);
+        s = "<br>";
+
+        // Works for all CSS values
+        s += "window.getComputedStyle(hdrTxt).fontSize = " +
+        window.getComputedStyle(hdrTxt).fontSize + " <br>";
+        console.log(s);
+        s = "<br>";
+
+        s += "window.getComputedStyle(hdrTxt)['fontSize'] = " +
+        window.getComputedStyle(hdrTxt)['fontSize'] + " <br>";
+        console.log(s);
+        s = "<br>";
+
+        s += "window.getComputedStyle(hdrTxt).getPropertyValue('font-size') = " +
+        window.getComputedStyle(hdrTxt).getPropertyValue('font-size') + " <br>";
+        console.log(s);
+        s = "<br>";
+
+        /* Works since cssRes has inline styling*/
+        s += "cssresult.style.fontSize = " + cssRes.style.fontSize + " <br>";
+        console.log(s);
+        s = "<br>";
+
+        // This method will get the values of standard CSS elements
+        s += "window.getComputedStyle(document.documentElement)['--mysize'] = " + " <br>";
+        console.log(s);
+        s = "<br>";
+        
+        // Instead use .getPropertyValue('property name') to get the value
+        s += "window.getComputedStyle(document.documentElement).getPropertyValue('--mysize') = " +
+        window.getComputedStyle(document.documentElement).getPropertyValue('--mysize') + " <br>";
+        console.log(s);
+
+        cssRes.innerHTML = s;
+
+    </script>
+</body>

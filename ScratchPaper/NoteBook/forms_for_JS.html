@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+    This shows several ways of accessing form elements taken from
+    https://developer.mozilla.org/en-US/docs/Web/API/Document/forms
+    and
+    https://www.w3schools.com/jsref/coll_doc_forms.asp
+ -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forms</title>
+    </head>
+
+    <body>
+
+        <h1>The Document Object</h1>
+        <h2>The forms Property</h2>
+
+        <p>
+        <form id="myname">
+            My name: <input type="text" name="fname" value="">
+        </form>
+        </p>
+
+        <p>
+        <form name="mycity">
+            My city: <input id="ourcity" type="text" name="city" value="">
+        </form>
+        </p>
+    
+        <button onclick="update()">Update</button>
+
+        <p id="result"></p>
+
+        <script>
+            let v;
+            const result = document.querySelector("#result");
+
+            function update() {
+                result.innerHTML = "";
+            
+                // 1
+                v = document.forms.namedItem("myname").elements.fname.value;
+                result.innerHTML = "1) " + v;
+                // 2
+                v = document.forms.namedItem("myname").fname.value; // without the .elements
+                result.innerHTML += "<br>" + "2) " +  v;
+                // 3
+                v = document.forms["myname"].fname.value;  // namedItem is the same as [] or as .item()
+                result.innerHTML += "<br>" + "3) " +  v;
+                // 4
+                v = document.forms.myname.elements.fname.value;
+                result.innerHTML += "<br>" + "4) " +  v;
+                // 5
+                v = document.forms.myname.fname.value; // without the .elements
+                result.innerHTML += "<br>" + "5) " +  v;
+                // 6
+                v = document.forms.namedItem("mycity").city.value;
+                result.innerHTML += "<br>" + "6) " +  v;
+                // 7
+                v = document.forms.mycity.city.value;
+                result.innerHTML += "<br>" + "7) " +  v;
+                // 8
+                v = document.querySelector("#ourcity").value;
+                result.innerHTML += "<br>" + "8) " +  v;
+            }
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator</title>
+</head>
+<body>
+    <div>
+        <button id="myBtn" onclick="genImg()">Click Me</button>
+    </div>
+    <div>
+        <img src="" id="myImg" width="500px">
+    </div>
+    <script>
+        function genImg() {
+            let randImg = Math.floor(Math.random() * 6) + 1;
+
+            switch(randImg){
+                case 1:
+                    console.log("1");
+                    fetch('anim1.jpg').then(res =>{ 
+                        console.log(res);
+                        return res.blob();
+                    }).then(blob => {
+                        console.log(blob);
+                        document.getElementById('myImg').src=URL.createObjectURL(blob)
+                    })
+                    break;
+                case 2:
+                    console.log("2");
+                    fetch('anim2.jpg').then(res =>{ 
+                        console.log(res);
+                        return res.blob();
+                    }).then(blob => {
+                        console.log(blob);
+                        document.getElementById('myImg').src=URL.createObjectURL(blob)
+                    })
+                    break;
+                case 3:
+                    console.log("3");
+                    fetch('anim3.jpg').then(res =>{ 
+                        console.log(res);
+                        return res.blob();
+                    }).then(blob => {
+                        console.log(blob);
+                        document.getElementById('myImg').src=URL.createObjectURL(blob)
+                    })
+                    break;
+                case 4:
+                    console.log("4");
+                    fetch('anim4.jpg').then(res =>{ 
+                        console.log(res);
+                        return res.blob();
+                    }).then(blob => {
+                        console.log(blob);
+                        document.getElementById('myImg').src=URL.createObjectURL(blob)
+                    })
+                    break;
+                case 5: 
+                    console.log("5");
+                    fetch('anim5.jpg').then(res =>{ 
+                        console.log(res);
+                        return res.blob();
+                    }).then(blob => {
+                        console.log(blob);
+                        document.getElementById('myImg').src=URL.createObjectURL(blob)
+                    })
+                    break;
+                case 6:
+                    console.log("6");
+                    fetch('anim6.jpg').then(res =>{ 
+                        console.log(res);
+                        return res.blob();
+                    }).then(blob => {
+                        console.log(blob);
+                        document.getElementById('myImg').src=URL.createObjectURL(blob)
+                    })
+                    break;
+                }
+            }
+    </script>
+</body>
+
+</html>

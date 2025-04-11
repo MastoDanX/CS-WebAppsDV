@@ -1,0 +1,32 @@
+body{
+    /* background-color:  	#E6003A; */
+    background-color: #005530;
+    color: #E6003A;
+    font-family: "Limelight", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /* color: #005530; */
+}
+
+h1,h2{
+    text-decoration: underline;
+}
+#doList{
+    background-color: aqua;
+    text-decoration: underline;
+
+}
+#doForm{
+    display: flex;
+    gap:5px;
+}
+button, input,checkbox{
+    font-family: "Limelight", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 0%;
+    border-color: #FFF;
+    background-color: #000;
+    color:#FFF;
+}
+

@@ -1,0 +1,10 @@
+Creates a preset html format which can be easily imported
+
+the use of double brackets tell the console that this is a template
+{{___}}
+
+
+mustache.github.imported
+
+`npm install mustache-express`:     Loads in the module
+

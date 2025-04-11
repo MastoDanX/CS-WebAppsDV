@@ -1,0 +1,30 @@
+How to set up a Cloud Server
+
+1. Website Maker Sites
+    Squarespace.com
+    Wix.com
+    GoDaddy.com
+
+    Pros:
+        User friendly
+        Quick and Easy to use
+    Cons:
+        No access to backend code
+        Can add in your own html and scripts but limited due to no access to the backend
+
+2. Cloud Server Providers    
+    AWS.com
+    Azure.microsoft.com
+    DigitalOcean.com
+
+        Pros:
+            User friendly
+            Quick and Easy to use
+        Cons:
+
+Step 1
+    go to cloud.google.com
+    create a new project > select project > create a virtual machine > enable google's api > head to your vm
+    configure your vm
+    Networking > enable http & https tracking
+    Create Instance

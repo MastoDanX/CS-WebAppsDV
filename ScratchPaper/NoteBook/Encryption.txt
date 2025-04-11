@@ -1,0 +1,14 @@
+get username
+get password
+
+store them in the database
+user can be directly stored
+password should be hashed then sent to the database
+
+when username is given, get the hash of the password
+went password entered is hashed compare to the stored hash to see if they are the same
+
+issues arise during this comparison that makes a vulnerable point for hackers to get the information
+
+to solve this a session token can be used
+    these tokens have a short expiration time

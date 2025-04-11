@@ -1,0 +1,21 @@
+Modules
+    are exactly like python libraries
+    hold functions and properties that can be imported to any file using an export expression
+
+.mjs vs .js
+    .mjs files implicitly say that they are a file using updated ECMA (ES6) code
+    .js files can be either ES6 code or CJS code ( original java script style )
+
+const express = require("express")  must be used for CJS coding
+import express from "express"       can be used for both ES6 & CJS code
+
+npm ( Node Package Manager )
+    `npm init` :                starts process to create a jSON Package; You type in all the values for 'name',
+                                'description', 'main', 'author', 'certficate'
+
+    `npm install express`:      creates a new JSON file called package-lock; this file has all dependencies 
+                                needed for express to run in a specific version of express
+
+    `npm ci` :                  Creates a folder containing all node modules
+
+    `npm update` :              Updates any new versions of all modules

@@ -1,0 +1,92 @@
+<!Doctype html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>MY TITLE</title>
+        <style>
+            #result {
+                margin-top: 1em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" placeholder="First name" autofocus><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" placeholder="Last name"><br><br>
+        <button onclick="showNames()">Submit</button>
+
+        <div id="result"></div>
+
+
+        <script>
+            // document.querySelector("#fname").focus();
+            function showNames() {
+                console.log("showNames");
+                const fn = document.querySelector("#fname");
+                const ln = document.querySelector("#lname");
+                const r = document.querySelector("#result")
+                ln.value = ln.value.toUpperCase();  // change the lname to uppercase before displaying
+                r.innerHTML = `Hello ${fn.value} ${ln.value}`;
+                ln.blur();
+            }
+
+            // Capitalize the last name when the user leaves the input field
+            // function changeInput(event) {
+                // const ln = document.querySelector("#lname");
+                // ln.value = ln.value.toUpperCase();
+            // }
+
+            // document.querySelector("#lname").addEventListener("change", changeInput);
+
+            // document.querySelector("#fname").addEventListener("mouseover", function() {
+                // document.querySelector("#fname").focus();
+                // console.log("hover");
+            // });
+
+            // document.querySelector("#fname").addEventListener("mouseover", function() {
+                // console.log("hover");
+                // document.querySelector("#fname").focus();
+            // });
+
+            // document.querySelector("#fname").addEventListener("mouseout", function() {
+                // document.querySelector("#fname").blur();
+            // });
+
+            // document.querySelector("#fname").addEventListener("mouseover", hover);
+            // document.querySelector("#fname").addEventListener("mouseover", hover);
+            document.querySelector("#fname").addEventListener("mouseover", hover);
+
+            function hover() {
+                console.log("hover");
+                document.querySelector("#fname").focus();
+            }
+
+            document.body.addEventListener("keydown", function(event) {
+                // console.log(event.key);
+                if (event.key == "Shift") {
+                    console.log("Shift key pressed");
+                }
+            });
+
+            // Capitalize the last name as the user types
+            document.querySelector("#lname").addEventListener("input", changeInput);
+            document.querySelector("#lname").addEventListener("keydown", handleKeyStroke);
+            function handleKeyStroke(event) {
+                if (event.key == "Enter") {
+                    showNames();
+                } else {
+                    console.log(event.key, document.querySelector("#lname").value);
+                }
+            }
+
+            window.addEventListener("beforeunload", function(event) {
+                event.returnValue = "You really want to leave?"; // Note that Firefox and Chrome ignore what is set here.
+            });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">  
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS Style Change</title>
+        
+        <style>
+            #bluebox {
+                background-color: yellow;
+                margin: 30px;
+                border: solid black 1px;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>My first JavaScript</h1>
+        <p>JavaScript can change the style of an element.</p>
+        <div id="bluebox" style="width: 100px; height: 100px;"></div>
+    </body>   
+
+    ﻿<script>
+        let box = document.querySelector("#bluebox");
+        box.style.backgroundColor = "lightblue";
+    </script>
+
+    <div id="bluebox" style="width: 100px; height: 100px;"></div>
+</html>
